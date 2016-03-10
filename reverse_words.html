@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+
+  <body>
+    <h3 id="Actual_text"></h3>
+    <h3 id="Reverse_text"></h3>
+
+
+    <script>
+      var name = prompt("Please Enter Your text");
+      document.getElementById('Actual_text').innerHTML = "Your Input text : " + name;
+
+      function reverse(name) {
+        return name.split('').reverse('').join('');
+      }
+      document.getElementById('Reverse_text').innerHTML = "Reversed text : " + reverse(name);
+    </script>
+  </body>
+</head>
+
+</html>

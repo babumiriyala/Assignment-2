@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+</head>
+<body>
+<p id="digits">
+
+</p>
+
+
+  <script type="text/javascript">
+
+  var digit = prompt("Please enter your number :");
+
+  var ones = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+  var tens = ['twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+  var tenones = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
+  function printWord(digit) {
+  if (digit < 10) {
+    return ones[digit];
+  } else if (digit < 20) {
+    onesPlace = digit % 10;
+    return tenones[onesPlace];
+  } else if (digit < 100) {
+    tensDigit = Math.floor(digit / 10);
+    onesDigit = digit % 10;
+    return tens[tensDigit - 2] + ' ' + ones[onesDigit];
+  } else if (digit < 1000) {
+    hundDigit = Math.floor(digit / 100);
+    hundRemainder = digit % 100;
+    return printWord(hundDigit) + ' hundred ' + printWord(hundRemainder);
+  } else if (digit < 1000000) {
+    thouDigit = Math.floor(digit / 1000);
+    thouRemainder = digit % 1000;
+    return printWord(thouDigit) + ' thousand ' + printWord(thouRemainder);
+  } else if (digit < 1000000000) {
+    millDigit = Math.floor(digit / 1000000);
+    millRemainder = digit % 1000000;
+    return printWord(millDigit) + ' million ' + printWord(millRemainder);
+  } else if (digit < 1000000000000) {
+    billDigit = Math.floor(digit / 1000000000);
+    billRemainder = digit % 1000000;
+    return printWord(billDigit) + ' billion ' + printWord(billRemainder);
+  }
+}
+
+document.getElementById('digits').innerHTML = "This is your Number --> " + printWord(digit);
+  </script>
+
+</body>
+
+</html>
